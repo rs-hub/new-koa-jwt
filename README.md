@@ -1,4 +1,6 @@
 # new-koa-jwt
+[![NPM version](https://img.shields.io/npm/v/new-koa-jwt.svg?style=flat)](https://npmjs.org/package/new-koa-jwt)
+[![NPM Downloads](https://img.shields.io/npm/dm/new-koa-jwt.svg?style=flat)](https://npmjs.org/package/new-koa-jwt)
 
 **Example**  
 ```typescript
