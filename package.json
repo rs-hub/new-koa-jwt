@@ -1,12 +1,16 @@
 {
   "name": "new-koa-jwt",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Koa.js middleware for validates a jwt",
   "scripts": {
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "tslint:fix": "tslint --fix -c tslint.json -p tsconfig.json",
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rs-hub/new-koa-jwt"
   },
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -23,7 +27,7 @@
   "readmeFilename": "README.md",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run tslint:fix && npm run tslint"
+      "pre-commit": "npm run test && npm run tslint:fix && npm run tslint"
     }
   },
   "devDependencies": {
