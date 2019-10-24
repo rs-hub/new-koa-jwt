@@ -3,6 +3,13 @@ import authorizationHeader from "./authorizationHeader";
 import jwt from "./jwt";
 
 class KoaJwt {
+
+    public static getInstance(secret): KoaJwt {
+        if (!KoaJwt.instance) {
+            KoaJwt.instance = new KoaJwt(secret);
+        }
+        return KoaJwt.instance;
+    }
     private static instance: KoaJwt;
     private readonly jwtSecret: Secret;
 
@@ -14,13 +21,6 @@ class KoaJwt {
         return jwt.verify(token, this.jwtSecret).catch((e) => {
             ctx.throw(401, e.message);
         });
-    }
-
-    public static getInstance(secret): KoaJwt {
-        if (!KoaJwt.instance) {
-            KoaJwt.instance = new KoaJwt(secret);
-        }
-        return KoaJwt.instance;
     }
 }
 
