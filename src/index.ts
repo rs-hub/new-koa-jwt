@@ -3,14 +3,6 @@ import authorizationHeader from "./authorizationHeader";
 import jwt from "./jwt";
 
 class KoaJwt {
-
-    public static getInstance(secret): KoaJwt {
-        if (!KoaJwt.instance) {
-            KoaJwt.instance = new KoaJwt(secret);
-        }
-        return KoaJwt.instance;
-    }
-    private static instance: KoaJwt;
     private readonly jwtSecret: Secret;
 
     constructor(secret: Secret) {
@@ -25,7 +17,7 @@ class KoaJwt {
 }
 
 export default ({ secret }: { secret: Secret }) => {
-    const koaJwt = KoaJwt.getInstance(secret);
+    const koaJwt = new KoaJwt(secret);
 
     return async (ctx, next) => {
         const token = authorizationHeader(ctx);
